@@ -1,0 +1,165 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.gma.servicio.ctrMtto"
+        ],
+        "designer|userClassName": "gmo.gma.servicio.ctrMtto"
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string"
+    },
+    "name": "gmo.gma.servicio.ctrMain1",
+    "designerId": "72b7c6cd-18e0-4cca-988e-0eab7a19649b",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "Main",
+                "selector": "#vpmaingmaServicio"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string"
+            },
+            "name": "Main",
+            "designerId": "7111fd8f-0df9-4d56-b219-910ac0032b13"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "Mtto",
+                "selector": "#wingmaServicio"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string"
+            },
+            "name": "Mtto",
+            "designerId": "17f09aeb-079e-4db5-9102-84e0267477db"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaServicio #btnCerrar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnCerrarClick",
+                "implHandler": [
+                    "        button.up('window').close();"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnCerrarClick",
+            "designerId": "9c68d205-af6f-471d-a93d-73e06a1e8746"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaServicio #btnGuardar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnGuardarClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            win = me.getMtto(),",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            ln_accion = win.down('#accion'),",
+                    "",
+                    "            frm = win.down('#frmServicio');",
+                    "",
+                    "            if (frm.isValid()===false){",
+                    "",
+                    "                Ext.Message.alert('Mensaje','Datos de formulario incompleto');",
+                    "",
+                    "                return;",
+                    "            }",
+                    "",
+                    "            frm.submit({",
+                    "",
+                    "                success: function(form, action){",
+                    "",
+                    "                var objJson =Ext.JSON.decode(action.response.responseText);",
+                    "",
+                    "                    if (objJson.success){",
+                    "                        Ext.MessageBox.alert('Mensaje',objJson.msg);",
+                    "                        vpn.down('#grdServicio').getStore().reload();",
+                    "                        vpn.down('#grdServicio').getSelectionModel().deselectAll();",
+                    "                        win.close();",
+                    "                    }",
+                    "            },",
+                    "            failure: function(form,action){",
+                    "",
+                    "                var objJson =Ext.JSON.decode(action.response.responseText);",
+                    "",
+                    "                Ext.MessageBox.alert('Mensaje',objJson.msgError);",
+                    "",
+                    "            },",
+                    "        params:{",
+                    "            operacion:1,",
+                    "            accion:ln_accion.getValue()",
+                    "    }",
+                    "",
+                    "});",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnGuardarClick",
+            "designerId": "a4218147-1229-46d0-9618-4173e450c9dc"
+        }
+    ]
+}

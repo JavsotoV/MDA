@@ -1,0 +1,646 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.gma.resolutor.ctrMain"
+        ],
+        "designer|userClassName": "gmo.gma.resolutor.ctrMain"
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string"
+    },
+    "name": "MyController",
+    "designerId": "079edf26-67c7-4574-8ada-e0eeec9c99ad",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "Main",
+                "selector": "#vpngmaResolutor"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string"
+            },
+            "name": "Main",
+            "designerId": "60bbdc89-2a1a-43c5-873c-dca9bf9ee55c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaResolutor #btnRecuperar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnRecuperarClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            ln_pai_codigo = vpn.down('#cmb_pais').getValue(),",
+                    "            ",
+                    "            ls_criterio = vpn.down('#txtcriterio').getValue(),",
+                    "",
+                    "            st_resolutor  = vpn.down('#grdgmaResolutor').getStore();",
+                    "",
+                    "            st_resolutor.load({",
+                    "                params:{",
+                    "                    'operacion':2,",
+                    "                    'rse_codigo':0,",
+                    "                    'pai_codigo':ln_pai_codigo,",
+                    "                    'criterio':ls_criterio",
+                    "                }",
+                    "            });"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnRecuperarClick",
+            "designerId": "4ca3c893-08d0-43e6-9dbf-68bca3c5bc5c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaResolutor #btnNuevo",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnNuevoClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            ln_pai_codigo = vpn.down('#cmb_pais').getValue(),",
+                    "",
+                    "            win = Ext.create('gma.view.gmo.gma.resolutor.winMtto');",
+                    "",
+                    "            win.down('#accion').setValue(1);",
+                    "",
+                    "            win.down('#pai_codigo').setValue(parseInt(ln_pai_codigo));",
+                    "",
+                    "            win.show();"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnNuevoClick",
+            "designerId": "961b56bd-c5cd-48b9-a73e-154f733e3cfc"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaResolutor #btnAnular",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnAnularClick",
+                "implHandler": [
+                    "       var me= this,",
+                    "",
+                    "            vp=me.getMain(),",
+                    "",
+                    "            grid=vp.down('#grdgmaResolutor'),",
+                    "",
+                    "            rse_codigo=[],",
+                    "",
+                    "            sm=grid.getSelectionModel();",
+                    "",
+                    "        if (sm.hasSelection()===false){",
+                    "",
+                    "            Ext.MessageBox.alert('Debe seleccionar registro a anular');",
+                    "",
+                    "            return;",
+                    "        }",
+                    "",
+                    "        var rec=sm.getSelection()[0];",
+                    "",
+                    "        var ls_url='/library/process/lst_gma_resolutor.php';",
+                    "",
+                    "        rse_codigo.push(rec.data.rse_codigo);",
+                    "",
+                    "        var ls_params={",
+                    "            'operacion' \t: 1,",
+                    "            'accion'\t\t: 3,",
+                    "            'rse_codigo[]'\t: rse_codigo",
+                    "        };",
+                    "",
+                    "        Ext.MessageBox.confirm('Mensaje','Desea anular registro seleccionado',function(rsp){",
+                    "",
+                    "            if(rsp==='yes'){",
+                    "",
+                    "                 me.getController('gmo.global.utiles.ctrfuncion').fn_AjaxRequest(ls_params,ls_url,function(val){",
+                    "",
+                    "                   if(val){",
+                    "",
+                    "                       grid.getStore().remove(rec);",
+                    "",
+                    "                       Ext.Msg.alert('Mensaje','Anulacion de registro realizado correctamente');",
+                    "                   }",
+                    "",
+                    "                 });",
+                    "            }",
+                    "",
+                    "        });",
+                    "",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnAnularClick",
+            "designerId": "fd86c4f8-8720-4bd8-8b9c-5da46e489edb"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaResolutor #btnCerrar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnCerrarClick",
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string"
+            },
+            "name": "onBtnCerrarClick",
+            "designerId": "08d71cf4-8815-45c6-9ab3-7947fdc0c032"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaResolutor",
+                "designer|params": [
+                    "component",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.panel.Panel",
+                "fn": "onVpngmaResolutorAfterRender",
+                "implHandler": [
+                    "var me = this,",
+                    "",
+                    "    vpn = me.getMain(),",
+                    "    ",
+                    "    cmb_pais = vpn.down('#cmb_pais'),",
+                    "    ",
+                    "    st_pais = vpn.down('#cmb_pais').getStore();",
+                    "",
+                    "st_pais.load({",
+                    "    params:{",
+                    "        'operacion':2",
+                    "    },",
+                    "    callback:function(records,options,success){",
+                    "       if(success&&records[0]!==undefined){",
+                    "       ",
+                    "           cmb_pais.setValue(records[0].data.pai_codigo);",
+                    "       }",
+                    "    }",
+                    "",
+                    "});"
+                ],
+                "name": "afterrender"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onVpngmaResolutorAfterRender",
+            "designerId": "d8bc46a7-6ea8-4a61-83e7-6db810f0c8b4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaResolutor #cmb_pais",
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "onCmb_paisChange",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            btn_recuperar = vpn.down('#btnRecuperar');",
+                    "",
+                    "            if (newValue===oldValue){ return;}",
+                    "",
+                    "            me.onBtnRecuperarClick(me,me.btn_recuperar);",
+                    ""
+                ],
+                "name": "change"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onCmb_paisChange",
+            "designerId": "39ee37f4-bc57-4b3d-b897-1a8ca9780f48"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaResolutor #txtcriterio",
+                "designer|params": [
+                    "field",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "onTxtcriterioSpecialkey",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            btn_recuperar = vpn.down('#btnRecuperar');",
+                    "",
+                    "            if(e.getKey()==e.ENTER){",
+                    "",
+                    "                me.onBtnRecuperarClick(me,me.btn_recuperar);",
+                    "            }"
+                ],
+                "name": "specialkey"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onTxtcriterioSpecialkey",
+            "designerId": "93d83130-47dc-48a1-950f-8455f5766b89"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaResolutor #btnRecuperardetalle",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnRecuperardetalleClick",
+                "implHandler": [
+                    "            var me = this,",
+                    "",
+                    "                vpn = me.getMain(),",
+                    "",
+                    "                grd = vpn.down('#grdgmaResolutor'),",
+                    "",
+                    "                sm = grd.getSelectionModel(),",
+                    "",
+                    "                ls_criterio = vpn.down('#txcriteriodet'),",
+                    "",
+                    "                st_responsable = vpn.down('#grdgmaresponsable').getStore();",
+                    "",
+                    "                if (sm.hasSelection()===false){",
+                    "",
+                    "                    return;",
+                    "                }",
+                    "",
+                    "                var rec= sm.getSelection()[0];",
+                    "",
+                    "                st_responsable.load({",
+                    "                    params:{",
+                    "                        'operacion':2,",
+                    "                        'rse_codigo':rec.data.rse_codigo,",
+                    "                        'criterio':ls_criterio",
+                    "                    }",
+                    "                });"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnRecuperardetalleClick",
+            "designerId": "3e2ab713-2fb8-4117-be36-2743e443fa92"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaResolutor #btnAdicionardetalle",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnAdicionardetalleClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            grd = vpn.down('#grdgmaResolutor'),",
+                    "",
+                    "            sm = grd.getSelectionModel();",
+                    "",
+                    "            if (sm.hasSelection()===false){",
+                    "",
+                    "                Ext.MessageBox.show({",
+                    "                    title  : 'Mensaje' ,",
+                    "                    msg    : 'Debe seleccionar un resolutor a quien desea agregar responsabilidades',",
+                    "                    buttons: Ext.MessageBox.OK,",
+                    "                    icon   : Ext.MessageBox.WARNING",
+                    "                });",
+                    "                ",
+                    "                return;",
+                    "            }",
+                    "",
+                    "            var rec = sm.getSelection()[0],",
+                    "",
+                    "            win = Ext.create('gma.view.gmo.gma.responsable.winMtto');",
+                    "",
+                    "                win.down('#rse_codigo').setValue(rec.data.rse_codigo);",
+                    "",
+                    "                win.down('#srv_denominacion').setValue(rec.data.srv_denominacion);",
+                    "",
+                    "                win.down('#per_nombrecompleto').setValue(rec.data.per_nombrecompleto);",
+                    "",
+                    "                win.down('#rse_niveldescripcion').setValue(rec.data.rse_niveldescripcion);",
+                    "",
+                    "                win.down('#pai_denominacion').setValue(rec.data.pai_denominacion);",
+                    "",
+                    "                win.down('#accion').setValue(1);",
+                    "",
+                    "                win.show();",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnAdicionardetalleClick",
+            "designerId": "329915e1-7af1-49c4-9901-ac9b175aebc9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaResolutor #btnAnulardetalle",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnAnulardetalleClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            grd = vpn.down('#grdgmaresponsable'),",
+                    "",
+                    "            sm = grd.getSelectionModel(),",
+                    "            ",
+                    "            rpe_codigo=[];",
+                    "",
+                    "            if (sm.hasSelection()===false){",
+                    "",
+                    "                Ext.MessageBox.alert('Mensaje','Debe seleccionar registro a anular');",
+                    "",
+                    "                return;",
+                    "            }",
+                    "",
+                    "        var rec=sm.getSelection()[0];",
+                    "",
+                    "        var ls_url='/library/process/lst_gma_responsable.php';",
+                    "",
+                    "        rpe_codigo.push(rec.data.rpe_codigo);",
+                    "",
+                    "        var ls_params={",
+                    "            'operacion' \t: 1,",
+                    "            'accion'\t\t: 3,",
+                    "            'rpe_codigo[]'\t: rpe_codigo",
+                    "        };",
+                    "",
+                    "        Ext.MessageBox.confirm('Mensaje','Desea anular registro seleccionado',function(rsp){",
+                    "",
+                    "            if(rsp==='yes'){",
+                    "",
+                    "                 me.getController('gmo.global.utiles.ctrfuncion').fn_AjaxRequest(ls_params,ls_url,function(val){",
+                    "",
+                    "                   if(val){",
+                    "",
+                    "                       grd.getStore().remove(rec);",
+                    "",
+                    "                       Ext.Msg.alert('Mensaje','Anulacion de registro realizado correctamente');",
+                    "                   }",
+                    "",
+                    "                 });",
+                    "            }",
+                    "",
+                    "        });",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnAnulardetalleClick",
+            "designerId": "abd26ed7-2f3b-41f1-9cf5-5486ab5e6393"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaResolutor #txtcriteriodet",
+                "designer|params": [
+                    "field",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "onTxtcriteriodetSpecialkey",
+                "name": "specialkey"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string"
+            },
+            "name": "onTxtcriteriodetSpecialkey",
+            "designerId": "cf254f7d-1253-4da7-a01d-49e68ca2459b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#grdgmaResolutor",
+                "designer|params": [
+                    "model",
+                    "selected",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onGrdgmaResolutorSelectionChange",
+                "implHandler": [
+                    "        var me  = this,",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            btn_recuperar = vpn.down('#btnRecuperardetalle');",
+                    "",
+                    "            me.onBtnRecuperardetalleClick(me,me.btn_recuperar);"
+                ],
+                "name": "selectionchange"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onGrdgmaResolutorSelectionChange",
+            "designerId": "4cea641e-5e89-4acb-9e4b-a01e3583404c"
+        }
+    ]
+}

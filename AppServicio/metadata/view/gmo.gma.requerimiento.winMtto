@@ -1,0 +1,465 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.gma.requerimiento.winMtto"
+        ],
+        "designer|userClassName": "gmo.gma.requerimiento.winMtto",
+        "height": 213,
+        "itemId": "wingmaRequerimiento",
+        "layout": "fit",
+        "modal": true,
+        "title": "Mantenimiento de Requerimientos x Servicio",
+        "width": 638
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "itemId": "string",
+        "layout": "string",
+        "modal": "boolean",
+        "title": "string",
+        "width": "auto"
+    },
+    "name": "MyWindow",
+    "designerId": "11363c09-4005-44fe-9326-27727cde49b9",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "itemId": "frmRequerimiento",
+                "method": "POST",
+                "url": "/library/process/lst_gma_requerimiento.php"
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "itemId": "string",
+                "method": "string",
+                "url": "string"
+            },
+            "name": "MyForm1",
+            "designerId": "e56f3413-ccb6-4a08-8b2c-2f1c49dfdac8",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "configAlternates": {
+                        "dock": "string"
+                    },
+                    "name": "MyToolbar3",
+                    "designerId": "f3988716-e22b-4db0-9650-ccb71aa4e14c",
+                    "cn": [
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "Menu de opciones:"
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number",
+                                "text": "string"
+                            },
+                            "name": "MyLabel1",
+                            "designerId": "70f49d62-f778-456a-ac0c-1745f8560afe"
+                        },
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
+                            },
+                            "name": "MyFill1",
+                            "designerId": "e0db42a2-e2c8-44b8-8dab-569316b01629"
+                        },
+                        {
+                            "type": "Ext.toolbar.Separator",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
+                            },
+                            "name": "MySeparator15",
+                            "designerId": "6b7595f8-0721-411c-baf5-cf08af92df64"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "iconCls": "btnNew",
+                                "itemId": "btnNuevo",
+                                "layout|flex": null,
+                                "text": "Nuevo"
+                            },
+                            "configAlternates": {
+                                "iconCls": "string",
+                                "itemId": "string",
+                                "layout|flex": "number",
+                                "text": "string"
+                            },
+                            "name": "MyButton11",
+                            "designerId": "672d17e7-caf1-444f-8222-d6d085b0e6a7"
+                        },
+                        {
+                            "type": "Ext.toolbar.Separator",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
+                            },
+                            "name": "MySeparator16",
+                            "designerId": "ee33746b-c343-42a2-9556-8260670d724f"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "iconCls": "btnSave",
+                                "itemId": "btnGuardar",
+                                "layout|flex": null,
+                                "text": "Guardar"
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number",
+                                "text": "string",
+                                "iconCls": "string",
+                                "itemId": "string"
+                            },
+                            "name": "MyButton12",
+                            "designerId": "ebff23be-427d-472d-8e01-aa1a60d92e44"
+                        },
+                        {
+                            "type": "Ext.toolbar.Separator",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
+                            },
+                            "name": "MySeparator17",
+                            "designerId": "dec12826-8415-4a57-b90b-b21ad045643d"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "iconCls": "btnClose",
+                                "itemId": "btnCerrar",
+                                "layout|flex": null,
+                                "text": "Cerrar"
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number",
+                                "text": "string",
+                                "iconCls": "string",
+                                "itemId": "string"
+                            },
+                            "name": "MyButton13",
+                            "designerId": "5f4e35d4-3e3b-4a58-9e78-6f9b2288d1ad"
+                        },
+                        {
+                            "type": "Ext.toolbar.Separator",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
+                            },
+                            "name": "MySeparator18",
+                            "designerId": "3db163c8-f650-4660-bc36-71374411bac6"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "itemId": "accion",
+                        "layout|anchor": "100%",
+                        "name": "accion"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyHiddenField2",
+                    "designerId": "2351bab6-7833-4b9d-ae5b-acf9b955bf7f"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "itemId": "rqe_codigo",
+                        "layout|anchor": "100%",
+                        "name": "rqe_codigo",
+                        "value": [
+                            "0"
+                        ]
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "itemId": "string",
+                        "name": "string",
+                        "value": "object"
+                    },
+                    "name": "MyHiddenField3",
+                    "designerId": "799c011f-5a9c-4848-93db-822904f71d95"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "itemId": "srv_codigo",
+                        "layout|anchor": "100%",
+                        "name": "srv_codigo"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "itemId": "string",
+                        "name": "string"
+                    },
+                    "name": "MyHiddenField4",
+                    "designerId": "eb6331a1-86f8-4574-88a8-bfc8fb1ae501"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Servicio",
+                        "fieldStyle": "font-size:11px; text-transform: uppercase;",
+                        "itemId": "srv_denominacion",
+                        "labelAlign": "top",
+                        "layout|anchor": "100%",
+                        "name": "srv_denominacion",
+                        "readOnly": true
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "labelAlign": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "readOnly": "boolean",
+                        "allowBlank": "boolean"
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "4d235a60-9f60-451b-ba30-7a631e2000af"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "emptyText": "Especificar denominacion de requerimiento",
+                        "fieldLabel": "Requerimiento:",
+                        "fieldStyle": "font-size:11px; text-transform: uppercase;",
+                        "itemId": "rqe_denominacion",
+                        "labelAlign": "top",
+                        "layout|anchor": "100%",
+                        "name": "rqe_denominacion"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "allowBlank": "boolean",
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "labelAlign": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "62f0b63e-1d93-45e1-bb5a-bf116b0f1ada"
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "hbox"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string"
+                    },
+                    "name": "MyFieldContainer",
+                    "designerId": "2d59f6d7-ebc4-40d9-91e1-b05758a9fa0f",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "displayField": "descripcion",
+                                "emptyText": "Seleccionar nivel de prioridad de requerimiento ",
+                                "fieldLabel": "Prioridad",
+                                "fieldStyle": "font-size:11px; text-transform: uppercase;",
+                                "itemId": "rqe_prioridad",
+                                "labelAlign": "top",
+                                "layout|flex": 1,
+                                "name": "rqe_prioridad",
+                                "queryMode": "local",
+                                "store": "gmo.gma.atributo.stprioridad",
+                                "valueField": "codigo"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "layout|anchor": "string",
+                                "fieldStyle": "string",
+                                "itemId": "string",
+                                "labelAlign": "string",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "displayField": "datafield",
+                                "emptyText": "string",
+                                "queryMode": "string",
+                                "store": "store",
+                                "valueField": "datafield",
+                                "layout|flex": "number"
+                            },
+                            "name": "MyComboBox",
+                            "designerId": "b3f57947-effc-4a9e-95cf-ec88ca681fef"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "emptyText": "",
+                                "fieldLabel": "Tiempo Rpta (Hrs.)",
+                                "fieldStyle": "font-size:11px; text-transform: uppercase;",
+                                "itemId": "rqe_tiemporpta",
+                                "labelAlign": "top",
+                                "margin": "0 0 0 10",
+                                "minValue": 0,
+                                "name": "rqe_tiemporpta"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "layout|anchor": "string",
+                                "fieldStyle": "string",
+                                "itemId": "string",
+                                "labelAlign": "string",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "displayField": "datafield",
+                                "emptyText": "string",
+                                "queryMode": "string",
+                                "store": "store",
+                                "valueField": "datafield",
+                                "margin": "auto",
+                                "minValue": "number"
+                            },
+                            "name": "MyNumberField",
+                            "designerId": "32e8dfff-68e7-4148-8afb-f29f06c35ab9"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

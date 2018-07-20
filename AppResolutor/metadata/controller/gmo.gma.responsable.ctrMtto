@@ -1,0 +1,373 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.gma.responsable.ctrMtto"
+        ],
+        "designer|userClassName": "gmo.gma.responsable.ctrMtto"
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string"
+    },
+    "name": "MyController1",
+    "designerId": "68028231-c3c5-45b7-b97a-748d9c3cd3be",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "Mtto",
+                "selector": "#wingmaresponsable"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string"
+            },
+            "name": "Mtto",
+            "designerId": "97a2a9cb-9bf5-41aa-bdc1-3292c747d093"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "Main",
+                "selector": "#vpngmaResolutor"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string"
+            },
+            "name": "Main",
+            "designerId": "ae0f580b-da71-4a20-97f4-6fcccd4349e8"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaresponsable #btnrecuperar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnrecuperarClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "            ",
+                    "            win = me.getMtto(),",
+                    "            ",
+                    "            ln_rse_codigo = win.down('#rse_codigo').getValue(),",
+                    "            ",
+                    "            st_requerimiento = win.down('#grdgmarequerimiento').getStore();",
+                    "",
+                    "            st_requerimiento.load({",
+                    "                params:{",
+                    "                    'operacion':3,",
+                    "                    'rse_codigo':ln_rse_codigo",
+                    "                }                    ",
+                    "            });"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnrecuperarClick",
+            "designerId": "8b506f61-75a1-4789-801f-7c807440efbe"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaresponsable #btnguardar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnguardarClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            win = me.getMtto(),",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            frm = win.down('#frmgmaresponsable'),",
+                    "",
+                    "            ln_accion = win.down('#accion').getValue(),",
+                    "",
+                    "            ln_rse_codigo = win.down('#rse_codigo').getValue(),",
+                    "",
+                    "            st_requerimiento = win.down('#grdgmarequerimiento').getStore(),",
+                    "",
+                    "            st_responsable = vpn.down('#grdgmaresponsable').getStore(),",
+                    "",
+                    "            rpe_codigo=[],",
+                    "",
+                    "            rqe_codigo=[];",
+                    "",
+                    "            if (frm.isValid()===false){",
+                    "",
+                    "                 Ext.MessageBox.show({",
+                    "                    title  : 'Mensaje' ,",
+                    "                    msg    : 'Datos de formulario incompleto',",
+                    "                    buttons: Ext.MessageBox.OK,",
+                    "                    icon   : Ext.MessageBox.WARNING",
+                    "                });",
+                    "",
+                    "                return;",
+                    "            }",
+                    "",
+                    "",
+                    "            var ln_fila=0;",
+                    "",
+                    "            Ext.each(st_requerimiento.getRange(), function(record){",
+                    "",
+                    "                  if (record.get('rqe_seleccionado')) {",
+                    "",
+                    "                          ln_fila++;",
+                    "",
+                    "                          rpe_codigo.push(0);",
+                    "",
+                    "                          rqe_codigo.push(record.get('rqe_codigo'));",
+                    "                  }",
+                    "",
+                    "            });",
+                    "",
+                    "            if (ln_fila===0){",
+                    "",
+                    "                Ext.MessageBox.alert('Mensaje','No se ha seleccionado ninguna registro');",
+                    "",
+                    "                return;",
+                    "            }",
+                    "",
+                    "",
+                    "            frm.submit({",
+                    "",
+                    "                success: function(form,action){",
+                    "",
+                    "                        var objJson=Ext.JSON.decode(action.response.responseText);",
+                    "",
+                    "                        if(objJson.success){",
+                    "",
+                    "                            Ext.MessageBox.alert('Mensaje',objJson.msg);",
+                    "",
+                    "                            win.close();",
+                    "                        }",
+                    "                },",
+                    "                failure: function(form,action){",
+                    "",
+                    "                    var objJson = Ext.JSON.decode(action.response.responseText);",
+                    "",
+                    "                    Ext.MessageBox.alert('Mensaje',objJson.msgError);",
+                    "                },",
+                    "                params:{",
+                    "                    'operacion':1,",
+                    "                    'accion':ln_accion,",
+                    "                    'rse_codigo':ln_rse_codigo,",
+                    "                    'rpe_codigo[]':rpe_codigo,",
+                    "                    'rqe_codigo[]':rqe_codigo",
+                    "                }",
+                    "            });",
+                    "",
+                    "",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnguardarClick",
+            "designerId": "ae234bb8-21e3-436d-9cb7-d645060c6721"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaresponsable #btncerrar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtncerrarClick",
+                "implHandler": [
+                    "        button.up('window').close();"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtncerrarClick",
+            "designerId": "45734af6-7d34-4bc1-a87a-8ff06f761d07"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaresponsable",
+                "designer|params": [
+                    "component",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.window.Window",
+                "fn": "onWingmaresponsableAfterRender",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            win = me.getMtto(),",
+                    "",
+                    "            btn_recuperar = win.down('#btnrecuperar');",
+                    "",
+                    "            me.onBtnrecuperarClick(me,me.btn_recuperar);"
+                ],
+                "name": "afterrender"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onWingmaresponsableAfterRender",
+            "designerId": "a5ef6f04-2d8e-4488-a199-defa0a67a212"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaresponsable #btnseleccionar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnseleccionarClick",
+                "implHandler": [
+                    "    var me = this,",
+                    "        ",
+                    "        win = me.getMtto(),",
+                    "        ",
+                    "        st_requerimiento = win.down('#grdgmarequerimiento').getStore();",
+                    "    ",
+                    "        Ext.each(st_requerimiento.getRange(), function(record){",
+                    "",
+                    "                  record.set('rqe_seleccionado',true);",
+                    "",
+                    "            });"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnseleccionarClick",
+            "designerId": "1be1b873-683d-4a95-9f4b-de6d717f4467"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnretirar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnretirarClick",
+                "implHandler": [
+                    " var me = this,",
+                    "",
+                    "        win = me.getMtto(),",
+                    "",
+                    "        st_requerimiento = win.down('#grdgmarequerimiento').getStore();",
+                    "",
+                    "        Ext.each(st_requerimiento.getRange(), function(record){",
+                    "",
+                    "                  record.set('rqe_seleccionado',false);",
+                    "",
+                    "            });"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnretirarClick",
+            "designerId": "6556c47d-c48c-4801-b543-c3223214c8af"
+        }
+    ]
+}

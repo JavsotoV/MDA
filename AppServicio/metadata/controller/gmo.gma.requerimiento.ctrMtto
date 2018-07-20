@@ -1,0 +1,249 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.gma.requerimiento.ctrMtto"
+        ],
+        "designer|userClassName": "gmo.gma.requerimiento.ctrMtto"
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string"
+    },
+    "name": "MyController1",
+    "designerId": "aa7209b3-4342-41af-9508-85c74606f408",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "Main",
+                "selector": "#vpmaingmaServicio"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string"
+            },
+            "name": "Main",
+            "designerId": "5e00dfb0-d152-48cb-9afe-ecf0d67f99eb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "Mtto",
+                "selector": "#wingmaRequerimiento"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string"
+            },
+            "name": "Mtto",
+            "designerId": "94307afd-11ea-4c72-aea9-68c552f9e7da"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaRequerimiento",
+                "designer|params": [
+                    "component",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.window.Window",
+                "fn": "onWingmaRequerimientoAfterRender",
+                "implHandler": [
+                    "        var me  =this,",
+                    "",
+                    "            win = me.getMtto(),",
+                    "",
+                    "            st_prioridad = win.down('#rqe_prioridad').getStore();",
+                    "",
+                    "            st_prioridad.load({",
+                    "                params:{",
+                    "                    'operacion':2",
+                    "                }",
+                    "            });"
+                ],
+                "name": "afterrender"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onWingmaRequerimientoAfterRender",
+            "designerId": "36d86b5f-888a-4dcd-b819-8472370d1178"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnNuevo",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnNuevoClick",
+                "implHandler": [
+                    "        var me =this,",
+                    "            ",
+                    "            win = me.getMtto();",
+                    "",
+                    "            win.down('#rqe_codigo').setValue(0);",
+                    "",
+                    "            win.down('#rqe_denominacion').setValue('');",
+                    "",
+                    "            win.down('#accion').setValue(1);               ",
+                    "            ",
+                    "            "
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnNuevoClick",
+            "designerId": "581ed065-94e0-4b21-b0ec-72edb9c2a67a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnGuardar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnGuardarClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            win = me.getMtto(),",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            frm = win.down('#frmRequerimiento'),",
+                    "",
+                    "            ln_accion = win.down('#accion');",
+                    "",
+                    "            if (frm.isValid()===false){",
+                    "",
+                    "                Ext.MessageBox.alert('Mensaje','Datos de formulario incompleto');",
+                    "",
+                    "                return;",
+                    "            }",
+                    "",
+                    "           frm.submit({",
+                    "",
+                    "                success: function(form, action){",
+                    "",
+                    "                var objJson =Ext.JSON.decode(action.response.responseText);",
+                    "",
+                    "                    if (objJson.success){",
+                    "                        Ext.MessageBox.alert('Mensaje',objJson.msg);",
+                    "                        vpn.down('#grdRequerimiento').getStore().reload();",
+                    "                        vpn.down('#grdRequerimiento').getSelectionModel().deselectAll();",
+                    "                        ",
+                    "                        if (ln_accion.getValue()==='2'){win.close();}",
+                    "                        ",
+                    "                    }",
+                    "                },",
+                    "                failure: function(form,action){",
+                    "",
+                    "                    var objJson =Ext.JSON.decode(action.response.responseText);",
+                    "",
+                    "                    Ext.MessageBox.alert('Mensaje',objJson.msgError);",
+                    "",
+                    "                },",
+                    "                params:{",
+                    "                    operacion:1,",
+                    "                    accion:ln_accion.getValue()",
+                    "                }",
+                    "           });",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnGuardarClick",
+            "designerId": "931591ff-f7d3-4173-998f-d276f4867d4b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnCerrar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnCerrarClick",
+                "implHandler": [
+                    "        button.up('window').close();"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnCerrarClick",
+            "designerId": "952f3847-753b-4147-aa24-26d7e00ec1ab"
+        }
+    ]
+}

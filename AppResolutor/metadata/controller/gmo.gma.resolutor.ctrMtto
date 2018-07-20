@@ -1,0 +1,578 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.gma.resolutor.ctrMtto"
+        ],
+        "designer|userClassName": "gmo.gma.resolutor.ctrMtto"
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string"
+    },
+    "name": "MyController1",
+    "designerId": "1ab5ecd8-557f-4a60-9c62-ca4831bab3b5",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "Mtto",
+                "selector": "#wingmaResolutor"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string"
+            },
+            "name": "Mtto",
+            "designerId": "87318d72-0452-4b17-87ba-49dec1c69a26"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaResolutor #btnCerrar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnCerrarClick",
+                "implHandler": [
+                    "        button.up('window').close();"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnCerrarClick",
+            "designerId": "0120e100-cfbc-486d-88e8-e782acee4d2e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaResolutor #btnRecuperar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnRecuperarClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            win = me.getMtto(),",
+                    "",
+                    "            ls_criterio = win.down('#txtcriterio').getValue(),",
+                    "",
+                    "            st_glprofile = win.down('#grdglprofile').getStore();",
+                    "",
+                    "            st_glprofile.getProxy().extraParams={",
+                    "                'operacion'\t : 2,",
+                    "                'pai_codigo' :0,",
+                    "                'criterio':ls_criterio",
+                    "            };",
+                    "",
+                    "             st_glprofile.loadPage(1);",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnRecuperarClick",
+            "designerId": "69c62b62-de7d-4cff-850a-60adbb7efe14"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaResolutor #btnAdicionar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnAdicionarClick",
+                "implHandler": [
+                    "var me = this,",
+                    "",
+                    "    win = me.getMtto(),",
+                    "",
+                    "    grd_glprofile = win.down('#grdglprofile'),",
+                    "",
+                    "    grd_resolutor = win.down('#grdgmaresolutor'),",
+                    "",
+                    "    st_resolutor = grd_resolutor.getStore(),",
+                    "",
+                    "    ln_count = st_resolutor.getCount(),",
+                    "",
+                    "    sm_glprofile = grd_glprofile.getSelectionModel();",
+                    "",
+                    "",
+                    "if (sm_glprofile.hasSelection()===false){",
+                    "",
+                    "    Ext.MessageBox.alert('Mensaje','Debe seleccionar usuario que desea agregar como resolutor');",
+                    "",
+                    "    return;",
+                    "}",
+                    "",
+                    "var lb_estado=true,",
+                    "",
+                    "    rec_glprofile = sm_glprofile.getSelection()[0],",
+                    "",
+                    "    rec_resolutor = Ext.create('gma.model.gmo.gma.resolutor.mdresolutor');",
+                    "",
+                    "Ext.each(st_resolutor.getRange(), function(item) {",
+                    "",
+                    "    if (( item.get('per_codigo') === rec_glprofile.data.per_codigo) && (item.get('rse_nivel')===1)) {",
+                    "",
+                    "        lb_estado=false;",
+                    "    }",
+                    "});",
+                    "",
+                    "",
+                    "if (lb_estado===false){",
+                    "",
+                    "    Ext.MessageBox.show({",
+                    "        title  : 'Mensaje' ,",
+                    "        msg    : 'Usuario ya se encuentra seleccionado',",
+                    "        buttons: Ext.MessageBox.OK,",
+                    "        icon   : Ext.MessageBox.INFO",
+                    "    });",
+                    "",
+                    "    return;",
+                    "}",
+                    "",
+                    "rec_resolutor.set('rse_codigo',0);",
+                    "",
+                    "rec_resolutor.set('pai_codigo',win.down('#pai_codigo').getValue());",
+                    "",
+                    "rec_resolutor.set('srv_codigo',win.down('#srv_codigo').getValue());",
+                    "",
+                    "rec_resolutor.set('per_codigo',rec_glprofile.data.per_codigo);",
+                    "",
+                    "rec_resolutor.set('per_nombrecompleto',rec_glprofile.data.per_nombrecompleto);",
+                    "",
+                    "rec_resolutor.set('per_nrodocidentidad',rec_glprofile.data.per_nrodocidentidad);",
+                    "",
+                    "rec_resolutor.set('ema_denominacion',rec_glprofile.ema_denominacion);",
+                    "",
+                    "rec_resolutor.set('rse_nivel',1);",
+                    "",
+                    "rec_resolutor.set('rse_estado',1);",
+                    "",
+                    "st_resolutor.insert(ln_count,rec_resolutor);"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnAdicionarClick",
+            "designerId": "ce3a61e3-212d-4642-8939-8cf5e80ca5c7"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaResolutor #btnEliminar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnEliminarClick",
+                "implHandler": [
+                    "            var me = this,",
+                    "",
+                    "                win = me.getMtto(),",
+                    "",
+                    "                grd = win.down('#grdgmaresolutor'),",
+                    "",
+                    "                st_resolutor = grd.getStore(),",
+                    "",
+                    "                sm = grd.getSelectionModel();",
+                    "",
+                    "                if (sm.hasSelection()===false){",
+                    "",
+                    "                        Ext.MessageBox.show({",
+                    "                                title  : 'Mensaje' ,",
+                    "                                msg    : 'Debe seleccionar registro a eliminar',",
+                    "                                buttons: Ext.MessageBox.OK,",
+                    "                                icon   : Ext.MessageBox.WARNING",
+                    "                            });",
+                    "",
+                    "                }",
+                    "",
+                    "",
+                    "                var rec = sm.getSelection()[0];",
+                    "",
+                    "                if (rec.data.rse_codigo===0){",
+                    "",
+                    "                    grd.getStore().remove(rec);",
+                    "                }",
+                    "                else{",
+                    "                        Ext.MessageBox.confirm('Mensaje','Desea anular registro seleccionado',function(rsp){",
+                    "",
+                    "                        if(rsp==='yes'){",
+                    "                           ",
+                    "                            rec.set('rse_estado',2);",
+                    "                        }",
+                    "",
+                    "                     });",
+                    "                 }"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnEliminarClick",
+            "designerId": "9bcfa581-a9bc-4055-9a3b-9c9d4d6ad69d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaResolutor",
+                "designer|params": [
+                    "component",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.window.Window",
+                "fn": "onWingmaResolutorAfterRender",
+                "implHandler": [
+                    "    var me = this,",
+                    "",
+                    "        win = me.getMtto(),",
+                    "",
+                    "        st_pais = win.down('#pai_codigo').getStore(),",
+                    "        ",
+                    "        srv_codigo = win.down('#srv_codigo'),",
+                    "",
+                    "        st_serv = win.down('#srv_codigo').getStore();",
+                    "",
+                    "        st_pais.load({",
+                    "            params:{",
+                    "                'operacion':2",
+                    "                }",
+                    "        });",
+                    "",
+                    "        st_serv.load({",
+                    "            params:{",
+                    "                'operacion':2,",
+                    "                'srv_codigo':0,",
+                    "                'criterio':'%'",
+                    "            },",
+                    "            callback: function(records,options,success){",
+                    "                 if(success && records[0]!==undefined){",
+                    "                       srv_codigo.setValue(records[0].data.srv_codigo);",
+                    "                 }",
+                    "            }",
+                    "        });"
+                ],
+                "name": "afterrender"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onWingmaResolutorAfterRender",
+            "designerId": "6e9b0b04-e783-4fea-87f5-72f85ff3b5c6"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaResolutor #srv_codigo",
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "onSrv_codigoChange",
+                "implHandler": [
+                    "        var me = this,",
+                    "            ",
+                    "            win = me.getMtto(),",
+                    "            ",
+                    "            ln_pai_codigo = win.down('#pai_codigo').getValue(),",
+                    "            ",
+                    "            st_resolutor = win.down('#grdgmaresolutor').getStore();",
+                    "",
+                    "            st_resolutor.load({",
+                    "                params:{",
+                    "                    'operacion':3,",
+                    "                    'pai_codigo':ln_pai_codigo,",
+                    "                    'srv_codigo': newValue",
+                    "                }",
+                    "            });"
+                ],
+                "name": "change"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onSrv_codigoChange",
+            "designerId": "f123f0b8-25e1-4db5-8c01-a21146759b64"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaResolutor #btnGuardar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnGuardarClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            win = me.getMtto(),",
+                    "",
+                    "            frm = win.down('#frmgmaresolutor'),",
+                    "",
+                    "            ln_accion = win.down('#accion').getValue(),",
+                    "            ln_pai_codigo= win.down('#pai_codigo').getValue(),",
+                    "            ln_srv_codigo = win.down('#srv_codigo').getValue(),",
+                    "            st_resolutor = win.down('#grdgmaresolutor').getStore(),",
+                    "            rse_codigo=[],",
+                    "            per_codigo=[],",
+                    "            rse_nivel=[],",
+                    "            rse_estado=[];",
+                    "",
+                    "            if (frm.isValid()===false){",
+                    "",
+                    "                Ext.MessageBox.show({",
+                    "                    title  : 'Mensaje' ,",
+                    "                    msg    : 'Datos de formulario incompleto',",
+                    "                    buttons: Ext.MessageBox.OK,",
+                    "                    icon   : Ext.MessageBox.WARNING",
+                    "                });",
+                    "",
+                    "                return;",
+                    "            }",
+                    "",
+                    "        Ext.each(st_resolutor.getRange(), function(record){",
+                    "            rse_codigo.push(record.get('rse_codigo'));",
+                    "            per_codigo.push(record.get('per_codigo'));",
+                    "            rse_nivel.push(record.get('rse_nivel'));",
+                    "            rse_estado.push(record.get('rse_estado'));",
+                    "        });",
+                    "",
+                    "    frm.submit({",
+                    "        success: function(form, action){",
+                    "",
+                    "            var objJson =Ext.JSON.decode(action.response.responseText);",
+                    "            if (objJson.success){",
+                    "",
+                    "                Ext.MessageBox.alert('Mensaje',objJson.msg);",
+                    "                ",
+                    "                st_resolutor.load({",
+                    "                    params:{",
+                    "                        'operacion':3,",
+                    "                        'pai_codigo':ln_pai_codigo,",
+                    "                        'srv_codigo':ln_srv_codigo",
+                    "                    }",
+                    "                });",
+                    "",
+                    "            }",
+                    "        },",
+                    "        failure: function(form,action){",
+                    "",
+                    "            var objJson =Ext.JSON.decode(action.response.responseText);",
+                    "",
+                    "            Ext.MessageBox.alert('Mensaje',objJson.msgError);",
+                    "",
+                    "    },",
+                    "    params:{",
+                    "        'operacion':1,",
+                    "        'accion':ln_accion,",
+                    "        'pai_codigo':ln_pai_codigo,",
+                    "        'srv_codigo':ln_srv_codigo,",
+                    "        'rse_codigo[]':rse_codigo,",
+                    "        'per_codigo[]':per_codigo,",
+                    "        'rse_nivel[]':rse_nivel,",
+                    "        'rse_estado[]':rse_estado}",
+                    "",
+                    "});",
+                    "",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnGuardarClick",
+            "designerId": "4acdf09e-c72d-43cf-a2e7-2a0c51642d8f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaResolutor #grvglprofile",
+                "designer|params": [
+                    "dataview",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.grid.View",
+                "fn": "onGrvglprofileItemDblClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            win = me.getMtto(),",
+                    "",
+                    "            btn_adicionar = win.down('#btnAdicionar');",
+                    "",
+                    "            me.onBtnAdicionarClick(me,me.btn_adicionar);",
+                    ""
+                ],
+                "name": "itemdblclick"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onGrvglprofileItemDblClick",
+            "designerId": "55aa4c78-33db-4012-88be-8127262551bc"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wingmaResolutor  #txtcriterio",
+                "designer|params": [
+                    "field",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "onTxtcriterioSpecialkey",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            win = me.getMtto(),",
+                    "",
+                    "            btn_recuperar = win.down('#btnRecuperar');",
+                    "",
+                    "            if(e.getKey()==e.ENTER){",
+                    "",
+                    "                me.onBtnRecuperarClick(me,me.btn_recuperar);",
+                    "             }"
+                ],
+                "name": "specialkey"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onTxtcriterioSpecialkey",
+            "designerId": "d4b6cd0c-e5a2-4f83-8f3c-bdec60a22ca6"
+        }
+    ]
+}

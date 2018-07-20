@@ -1,0 +1,90 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.gma.responsable.ctrMtto"
+        ],
+        "designer|userClassName": "gmo.gma.responsable.ctrMtto"
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string"
+    },
+    "name": "MyController1",
+    "designerId": "6f070a12-5588-45ef-a440-72d338b602ce",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "Mtto",
+                "selector": "#winMttoResponsable"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string"
+            },
+            "name": "Mtto",
+            "designerId": "2f25d0ee-8ae9-4aed-bece-c53d92a49a82"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#winMttoResponsable",
+                "designer|params": [
+                    "component",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.window.Window",
+                "fn": "onWinMttoResponsableAfterRender",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            win = me.getMtto(),",
+                    "",
+                    "            st_pais = win.down('#pai_codigo').getStore(),",
+                    "",
+                    "            st_srv  = win.down('#srv_codigo').getStore();",
+                    "",
+                    "            st_pais.load({",
+                    "                params:{",
+                    "                    'operacion':2",
+                    "                }",
+                    "            });",
+                    "",
+                    "            st_srv.load({",
+                    "                params:{",
+                    "                    'operacion':2,",
+                    "                    'srv_codigo':0",
+                    "                }",
+                    "            });"
+                ],
+                "name": "afterrender"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onWinMttoResponsableAfterRender",
+            "designerId": "7829c778-369d-41ca-8de8-36370b9ce771"
+        }
+    ]
+}

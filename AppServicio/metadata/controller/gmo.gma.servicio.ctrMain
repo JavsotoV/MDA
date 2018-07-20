@@ -1,0 +1,637 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.gma.servicio.ctrMain"
+        ],
+        "designer|userClassName": "gmo.gma.servicio.ctrMain"
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string"
+    },
+    "name": "MyController",
+    "designerId": "8d0cba7d-b01d-417a-ab61-8fdfd1c3b737",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "Main",
+                "selector": "#vpmaingmaServicio"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string"
+            },
+            "name": "Main",
+            "designerId": "2c878094-fdb1-4e78-a28a-f61372124b76"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpmaingmaServicio #btnRecuperar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnRecuperarClick",
+                "implHandler": [
+                    "var me = this,",
+                    "",
+                    "    vpn = me.getMain(),",
+                    "",
+                    "    ls_criterio = vpn.down('#txtcriterio').getValue(),",
+                    "",
+                    "    st_srv = vpn.down('#grdServicio').getStore();",
+                    "",
+                    "st_srv.load({",
+                    "    params:{",
+                    "        'operacion':2,",
+                    "        'srv_codigo':0,",
+                    "        'criterio':ls_criterio",
+                    "    }",
+                    "});"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnRecuperarClick",
+            "designerId": "185d829f-f73f-4cb3-a223-1cecbc0d7023"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpmaingmaServicio #btnNuevo",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnNuevoClick",
+                "implHandler": [
+                    "       var win = Ext.create('mda.view.gmo.gma.servicio.winMtto');",
+                    "",
+                    "            win.down('#accion').setValue(1);",
+                    "",
+                    "            win.show();"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnNuevoClick",
+            "designerId": "7268adb3-2a3f-4b8a-94eb-d93487c7c81b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpmaingmaServicio #btnModificar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnModificarClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            grd = vpn.down('#grdServicio'),",
+                    "",
+                    "            sm = grd.getSelectionModel();",
+                    "",
+                    "            if (sm.hasSelection()===false){",
+                    "",
+                    "                Ext.MessageBox.alert('Mensaje','Debe seleccionar registro a modificar');",
+                    "",
+                    "                return;",
+                    "            }",
+                    "",
+                    "            var rec = sm.getSelection()[0],",
+                    "",
+                    "                win = Ext.create('mda.view.gmo.gma.servicio.winMtto');",
+                    "            ",
+                    "                win.down('#frmServicio').loadRecord(rec);",
+                    "",
+                    "                win.down('#accion').setValue(2);",
+                    "",
+                    "                win.show();",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnModificarClick",
+            "designerId": "6e2e17d9-4ed7-4235-b8e8-9780003f5cd2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpmaingmaServicio #btnAnular",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnAnularClick",
+                "implHandler": [
+                    "var me= this,",
+                    "",
+                    "            vp=me.getMain(),",
+                    "",
+                    "            grid=vp.down('#grdServicio'),",
+                    "",
+                    "            sm=grid.getSelectionModel();",
+                    "",
+                    "        if (sm.hasSelection()===false){",
+                    "",
+                    "            Ext.MessageBox.alert('Debe seleccionar registro a anular');",
+                    "",
+                    "            return;",
+                    "        }",
+                    "",
+                    "        var rec=sm.getSelection()[0];",
+                    "",
+                    "        var ln_srv_codigo=rec.data.srv_codigo;",
+                    "",
+                    "        var ls_url='/library/process/lst_gma_servicio.php';",
+                    "",
+                    "        var ls_params={",
+                    "            'operacion' \t: 1,",
+                    "            'accion'\t\t: 3,",
+                    "            'srv_codigo'\t: ln_srv_codigo",
+                    "        };",
+                    "",
+                    "        Ext.MessageBox.confirm('Mensaje','Desea anular registro seleccionado',function(rsp){",
+                    "",
+                    "            if(rsp==='yes'){",
+                    "",
+                    "                 me.getController('gmo.global.utiles.ctrfuncion').fn_AjaxRequest(ls_params,ls_url,function(val){",
+                    "",
+                    "                   if(val){",
+                    "",
+                    "                       grid.getStore().remove(rec);",
+                    "",
+                    "                       Ext.Msg.alert('Mensaje','Anulacion de registro realizado correctamente');",
+                    "                   }",
+                    "",
+                    "                 });",
+                    "            }",
+                    "",
+                    "        });",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnAnularClick",
+            "designerId": "e2d75b57-0cac-42fc-837f-6851c4a076d5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpmaingmaServicio #btnCerrar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnCerrarClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "            vpn = me.getMain();",
+                    "",
+                    "            vpn.close();",
+                    "            "
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnCerrarClick",
+            "designerId": "9da908c3-c4a6-4de9-82ee-837e6ab47c5e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpmaingmaServicio #txtcriterio",
+                "designer|params": [
+                    "field",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "onTxtcriterioSpecialkey",
+                "implHandler": [
+                    "       var me = this,",
+                    "",
+                    "           vpn = me.getMain(),",
+                    "",
+                    "           btn_retrieve = vpn.down('#btnRecuperar');",
+                    "",
+                    "           if(e.getKey()==e.ENTER){",
+                    "",
+                    "               me.onBtnRecuperarClick(me,me.btn_retrieve);",
+                    "            }"
+                ],
+                "name": "specialkey"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onTxtcriterioSpecialkey",
+            "designerId": "cce4e0c5-96b5-4f73-8a52-360be089db1f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpmaingmaServicio  #txtcriteriorequerimiento",
+                "designer|params": [
+                    "field",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "onTxtcriteriorequerimientoSpecialkey",
+                "name": "specialkey"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string"
+            },
+            "name": "onTxtcriteriorequerimientoSpecialkey",
+            "designerId": "8434f785-b037-42fa-bf1f-bc9c11eb0019"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpmaingmaServicio  #btnRetrieverequerimiento",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnRetrieverequerimientoClick",
+                "implHandler": [
+                    "    var me = this,",
+                    "",
+                    "        vpn = me.getMain(),",
+                    "",
+                    "        grd = vpn.down('#grdServicio'),",
+                    "",
+                    "        st_rqe = vpn.down('#grdRequerimiento').getStore(),",
+                    "",
+                    "        sm = grd.getSelectionModel();",
+                    "",
+                    "        if (sm.hasSelection()===false) {return; }",
+                    "",
+                    "        var rec = sm.getSelection()[0];",
+                    "",
+                    "        st_rqe.load({",
+                    "            params:{",
+                    "                'operacion':2,",
+                    "                'rqe_codigo':0,",
+                    "                'srv_codigo':rec.data.srv_codigo",
+                    "            }",
+                    "        });"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnRetrieverequerimientoClick",
+            "designerId": "d818d5da-b05b-4630-9b6a-eea3ab2a495b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpmaingmaServicio  #btnNuevorequerimiento",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnNuevorequerimientoClick",
+                "implHandler": [
+                    "        var me = this,",
+                    "            vpn = me.getMain(),",
+                    "            grd = vpn.down('#grdServicio'),",
+                    "            sm = grd.getSelectionModel();",
+                    "",
+                    "            if (sm.hasSelection()===false){",
+                    "",
+                    "                Ext.MessageBox.alert('Mensaje','Debe seleccionar servicio de quien desee ingresar requerimiento');",
+                    "",
+                    "                return;",
+                    "            }",
+                    "",
+                    "            var rec = sm.getSelection()[0],",
+                    "",
+                    "            win=Ext.create('mda.view.gmo.gma.requerimiento.winMtto');",
+                    "",
+                    "            win.down('#srv_codigo').setValue(rec.data.srv_codigo);",
+                    "",
+                    "            win.down('#srv_denominacion').setValue(rec.data.srv_denominacion);",
+                    "",
+                    "            win.down('#accion').setValue(1);",
+                    "",
+                    "            win.show();"
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnNuevorequerimientoClick",
+            "designerId": "3b664330-4e6f-4280-81dd-77f8042ab523"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpmaingmaServicio  #btnModificarrequerimiento",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnModificarrequerimientoClick",
+                "implHandler": [
+                    "            var me = this,",
+                    "",
+                    "                vpn = me.getMain(),",
+                    "",
+                    "                grd = vpn.down('#grdRequerimiento'),",
+                    "",
+                    "                sm = grd.getSelectionModel();",
+                    "",
+                    "                if (sm.hasSelection()===false){",
+                    "",
+                    "                    Ext.MessageBox.alert('Mensaje','Debe seleccionar registro a modificar');",
+                    "",
+                    "                    return;",
+                    "                }",
+                    "",
+                    "                var rec = sm.getSelection()[0],",
+                    "",
+                    "                    win = Ext.create('mda.view.gmo.gma.requerimiento.winMtto');",
+                    "",
+                    "                    win.down('#frmRequerimiento').loadRecord(rec);",
+                    "",
+                    "                    win.down('#accion').setValue(2);",
+                    "                ",
+                    "                    win.show();",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnModificarrequerimientoClick",
+            "designerId": "36b8a7c9-c494-46df-8221-89f95fcf848d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpmaingmaServicio  #btnAnularrequerimiento",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnAnularrequerimientoClick",
+                "implHandler": [
+                    "     var me= this,",
+                    "            ",
+                    "            vp=me.getMain(),",
+                    "            ",
+                    "            grid=vp.down('#grdRequerimiento'),",
+                    "            ",
+                    "            sm=grid.getSelectionModel();",
+                    "",
+                    "        if (sm.hasSelection()===false){",
+                    "",
+                    "            Ext.MessageBox.alert('Debe seleccionar registro a anular');",
+                    "",
+                    "            return;",
+                    "        }",
+                    "",
+                    "        var rec=sm.getSelection()[0];",
+                    "",
+                    "        var ln_rqe_codigo=rec.data.rqe_codigo;",
+                    "",
+                    "        var ls_url='/library/process/lst_gma_requerimiento.php';",
+                    "",
+                    "        var ls_params={",
+                    "            operacion \t: 1,",
+                    "            accion\t\t: 3,",
+                    "            rqe_codigo\t: ln_rqe_codigo",
+                    "        };",
+                    "",
+                    "        Ext.MessageBox.confirm('Mensaje','Desea anular registro seleccionado',function(rsp){",
+                    "",
+                    "            if(rsp==='yes'){",
+                    "",
+                    "                 me.getController('gmo.global.utiles.ctrfuncion').fn_AjaxRequest(ls_params,ls_url,function(val){",
+                    "",
+                    "                   if(val){",
+                    "",
+                    "                       grid.getStore().remove(rec);",
+                    "",
+                    "                       Ext.Msg.alert('Mensaje','Anulacion de registro realizado correctamente');",
+                    "                   }",
+                    "",
+                    "                 });",
+                    "",
+                    "            }",
+                    "",
+                    "        });",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string",
+                "implHandler": "code"
+            },
+            "name": "onBtnAnularrequerimientoClick",
+            "designerId": "ce3074ed-ab50-4adf-b7c4-6ebd6a20d30c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#grdServicio",
+                "designer|params": [
+                    "model",
+                    "selected",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onGrdServicioSelectionChange",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            btn_retrieverqe =vpn.down('#btnRetrieverequerimiento');",
+                    "",
+                    "            me.onBtnRetrieverequerimientoClick(me,me.btn_retrieverqe);",
+                    ""
+                ],
+                "name": "selectionchange"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onGrdServicioSelectionChange",
+            "designerId": "da5f04ca-74fa-4927-81ba-18aff29f81bd"
+        }
+    ]
+}

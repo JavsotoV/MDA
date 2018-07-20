@@ -1,0 +1,60 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.gma.requerimiento.strequerimiento"
+        ],
+        "designer|userClassName": "gmo.gma.requerimiento.strequerimiento",
+        "model": "gmo.gma.requerimiento.mdrequerimiento",
+        "storeId": "gmo.gma.requerimiento.strequerimiento"
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore",
+    "designerId": "a816e7bc-28ec-4f57-8e58-e228ceae463e",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/library/process/lst_gma_requerimiento.php"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy1",
+            "designerId": "0b0c6569-610f-4c40-9469-98d400664204",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "data"
+                    },
+                    "configAlternates": {
+                        "root": "string"
+                    },
+                    "name": "MyJsonReader1",
+                    "designerId": "4977a12e-3d88-4b02-873a-38db8b5f045d"
+                }
+            ]
+        }
+    ]
+}

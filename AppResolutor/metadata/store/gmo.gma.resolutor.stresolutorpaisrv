@@ -1,0 +1,60 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.gma.resolutor.stresolutorpaisrv"
+        ],
+        "designer|userClassName": "gmo.gma.resolutor.stresolutorpaisrv",
+        "model": "gmo.gma.resolutor.mdresolutor",
+        "storeId": "gmo.gma.resolutor.stresolutorpaisrv"
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "gmo.gma.resolutor.stresolutor1",
+    "designerId": "99c2061d-5847-4663-a958-2e24b63b9ec9",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/library/process/lst_gma_resolutor.php"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "635df2ab-c948-4aa9-a98f-f416659b11d6",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "data"
+                    },
+                    "configAlternates": {
+                        "root": "string"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "caa88f1a-64b8-4387-90a9-fc68ae97d996"
+                }
+            ]
+        }
+    ]
+}

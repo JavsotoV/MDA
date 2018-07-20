@@ -1,0 +1,66 @@
+{
+    "name": "AppResponsable",
+    "settings": {
+        "cmd": {
+            "license": "commercial"
+        },
+        "urlPrefixTemplate": "http://localhost:{port}/{path}",
+        "urlPrefix": "http://localhost/",
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Large",
+                "builtIn": true,
+                "height": 1024,
+                "width": 1280
+            }
+        },
+        "exportPath": "C:/xampp/htdocs/mda",
+        "buildShouldOverwriteIndex": false,
+        "generateArchitectVersion": false,
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1675-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1729-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-2079-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-2133-inputEl": "a new version of the framework is available"
+    },
+    "xdsVersion": "4.2.3",
+    "xdsBuild": 371,
+    "schemaVersion": 1,
+    "upgradeVersion": 310000000001,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "7d4accd8-0346-4c7e-a0f5-130dad6cad43",
+            "040f1eab-85c3-44c2-b617-9223cd4af1ee"
+        ],
+        "store": [
+            "eb860295-8fd0-43cc-bf98-96ea0fbdc1c7",
+            "d1056fa5-8539-4474-9a37-8c46a13462bc",
+            "7067ccc9-73d7-4c7a-a277-e9f32b9c0fd9",
+            "16717b13-5800-4dec-95a2-c3a9e0ce4dae",
+            "b489ecb1-0059-4b89-8c92-01ab197ee9c7"
+        ],
+        "controller": [
+            "6bfbb8c9-15e6-4c4b-a235-6900e5aab81b",
+            "7c1a6a55-613b-4381-924f-56cd63f5c3b4",
+            "6f070a12-5588-45ef-a440-72d338b602ce"
+        ],
+        "model": [
+            "dba2e3f7-c41d-462b-9952-708d296edde1",
+            "1dacb2f5-80f5-4b4c-816b-a8156200398c",
+            "17c8c0c5-022c-461f-a61c-2ebcbad8ba65"
+        ],
+        "resource": [
+            "04c21a68-c2d1-4d52-ba51-1d168c1a09c1",
+            "d4f0950f-9e95-4848-9701-b546743fb4fe",
+            "9df848f8-dfd4-4901-81d4-626e2fa5fc43"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

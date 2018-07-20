@@ -1,0 +1,112 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.global.utiles.ctrfuncion"
+        ],
+        "designer|userClassName": "gmo.global.utiles.ctrfuncion"
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string"
+    },
+    "name": "MyController1",
+    "designerId": "a91a97af-d3f3-4d69-a06f-45a5e9537946",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "as_params",
+                    "as_url",
+                    "cb_function"
+                ],
+                "fn": "fn_AjaxRequest",
+                "implHandler": [
+                    "            var respuesta='';",
+                    "",
+                    "             Ext.Ajax.request({",
+                    "                method:'POST',",
+                    "                url:as_url,",
+                    "                params:as_params,",
+                    "",
+                    "                success:function(result,request){",
+                    "                    respuesta=Ext.JSON.decode(result.responseText);",
+                    "                    if (respuesta.success){",
+                    "",
+                    "                        cb_function(true);",
+                    "                    }else{",
+                    "                        Ext.Msg.alert('Mensaje',respuesta.msgError);",
+                    "                        cb_function(false);",
+                    "                    }",
+                    "                },",
+                    "                failure:function(result,request){",
+                    "                    respuesta=Ext.JSON.decode(result.responseText);",
+                    "                    Ext.Msg.alert('Mensaje Failure',respuesta.msgError);",
+                    "                    cb_function(false);",
+                    "                }",
+                    "            });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "fn_AjaxRequest",
+            "designerId": "7dff8276-c436-490e-9ad3-a23f3d930acb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "form",
+                    "as_params",
+                    "as_url",
+                    "cb_function",
+                    "resultdata"
+                ],
+                "fn": "fn_FormSubmit",
+                "implHandler": [
+                    "        form.submit({",
+                    "            url:as_url,",
+                    "            method:'POST',",
+                    "            scope:this,",
+                    "            params:as_params,",
+                    "            success:function(form,action){",
+                    "                resultdata= Ext.JSON.decode(action.response.responseText);",
+                    "                cb_function(true,resultdata);",
+                    "            },",
+                    "            failure:function(form,action){",
+                    "                resultdata=Ext.JSON.decode(action.response.responseText);",
+                    "                cb_function(false,resultdata);",
+                    "            }",
+                    "",
+                    "        });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "fn_FormSubmit",
+            "designerId": "7c42df03-0d04-40ca-af0b-f71e6c9e24d8"
+        }
+    ]
+}

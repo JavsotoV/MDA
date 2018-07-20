@@ -1,0 +1,46 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "appFolder": "app/mda",
+        "appProperty": "mda",
+        "controllers": [
+            "gmo.gma.responsable.ctrMain",
+            "gmo.gma.responsable.ctrMtto"
+        ],
+        "models": [
+            "gmo.global.glbpais.mdglbpais",
+            "gmo.gma.responsable.mdresponsable",
+            "gmo.gma.servicio.mdservicio"
+        ],
+        "name": "mda",
+        "stores": [
+            "gmo.global.glbpais.stglbpais",
+            "gmo.gma.responsable.stresponsable",
+            "gmo.gma.responsable.stresponsablenew",
+            "gmo.gma.servicio.stservicio",
+            "gmo.gma.servicio.stserviciocmb"
+        ],
+        "title": "Mantenimiento de Responsables",
+        "views": [
+            "gmo.gma.responsable.vpmain",
+            "gmo.gma.responsable.winMtto"
+        ]
+    },
+    "configAlternates": {
+        "appFolder": "string",
+        "appProperty": "string",
+        "controllers": "typedarray",
+        "models": "typedarray",
+        "name": "string",
+        "stores": "typedarray",
+        "title": "string",
+        "views": "typedarray"
+    },
+    "name": "Application",
+    "designerId": "application"
+}

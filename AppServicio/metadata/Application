@@ -1,0 +1,48 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "appFolder": "app/mda",
+        "appProperty": "mda",
+        "controllers": [
+            "gmo.gma.servicio.ctrMain",
+            "gmo.gma.servicio.ctrMtto",
+            "MyController",
+            "gmo.gma.requerimiento.ctrMtto",
+            "gmo.global.utiles.ctrfuncion"
+        ],
+        "models": [
+            "gmo.gma.servicio.mdservicio",
+            "gmo.gma.requerimiento.mdrequerimiento",
+            "gmo.gma.atributo.mdprioridad"
+        ],
+        "name": "mda",
+        "stores": [
+            "gmo.gma.servicio.stservicio",
+            "gmo.gma.requerimiento.strequerimiento",
+            "gmo.gma.atributo.stprioridad"
+        ],
+        "title": "Gestion de Tickets ",
+        "views": [
+            "gmo.gma.servicio.vpmain",
+            "gmo.gma.servicio.winMtto",
+            "gmo.gma.requerimiento.winMtto"
+        ]
+    },
+    "configAlternates": {
+        "appFolder": "string",
+        "appProperty": "string",
+        "controllers": "typedarray",
+        "models": "typedarray",
+        "name": "string",
+        "stores": "typedarray",
+        "title": "string",
+        "views": "typedarray"
+    },
+    "name": "Application",
+    "designerId": "application"
+}

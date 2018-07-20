@@ -1,0 +1,237 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.gma.responsable.ctrMain"
+        ],
+        "designer|userClassName": "gmo.gma.responsable.ctrMain"
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string"
+    },
+    "name": "MyController",
+    "designerId": "6bfbb8c9-15e6-4c4b-a235-6900e5aab81b",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "Main",
+                "selector": "#vpngmaresponsable"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string"
+            },
+            "name": "Main",
+            "designerId": "55b7dd35-9d11-4709-8a85-239b54518de8"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaresponsable #btnRecuperar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnRecuperarClick",
+                "implHandler": [
+                    "var me = this,",
+                    "",
+                    "    vpn = me.getMtto(),",
+                    "",
+                    "    ls_criterio = vpn.down('#txtcriterio').getValue(),",
+                    "    ",
+                    "    ln_srv_codigo = vpn.down('#srv_codigo').getValue(),",
+                    "",
+                    "    st_rsp = vpn.down('#grdResponsable').getStore();",
+                    "",
+                    "st_rsp.load({",
+                    "    params:{",
+                    "        'accion':2,",
+                    "        'srv_codigo':ln_srv_codigo,",
+                    "        'txtcriterio':ls_criterio",
+                    "    }",
+                    "});",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnRecuperarClick",
+            "designerId": "c4d2bbe4-bae8-4940-ae78-8d0aac5b838d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaresponsable #btnNuevo",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnNuevoClick",
+                "implHandler": [
+                    "var me =this,",
+                    "",
+                    "    vpn = me.getMain(),",
+                    "",
+                    "    win = Ext.create('mda.view.gmo.gma.responsable.winMtto');",
+                    "",
+                    "    win.down('#accion').setValue(1);",
+                    "",
+                    "    win.show();\t",
+                    ""
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnNuevoClick",
+            "designerId": "fd6fb003-a951-4962-b459-625b2fcd453f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaresponsable #btnAnular",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnAnularClick",
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string"
+            },
+            "name": "onBtnAnularClick",
+            "designerId": "dde99778-724f-4b37-adfd-8bb40163023b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaresponsable #btnCerrar",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnCerrarClick",
+                "implHandler": [
+                    "         var me = this,",
+                    "             ",
+                    "             vpn = me.getMain();",
+                    "",
+                    "             vpn.close();             ",
+                    "             "
+                ],
+                "name": "click"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onBtnCerrarClick",
+            "designerId": "533c2603-ab00-44ed-aae6-cd94ddd75bc3"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#vpngmaresponsable",
+                "designer|params": [
+                    "component",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.panel.Panel",
+                "fn": "onVpngmaresponsableAfterRender",
+                "implHandler": [
+                    "        var me = this,",
+                    "",
+                    "            vpn = me.getMain(),",
+                    "",
+                    "            st_srv = vpn.down('#srv_codigo').getStore();",
+                    "",
+                    "            st_srv.load({",
+                    "                params:{",
+                    "                    'operacion':2,",
+                    "                    'srv_codigo':0                    ",
+                    "                }",
+                    "            });"
+                ],
+                "name": "afterrender"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string"
+            },
+            "name": "onVpngmaresponsableAfterRender",
+            "designerId": "5d3db5bb-44c1-48de-a915-c1f0d3db5fc0"
+        }
+    ]
+}

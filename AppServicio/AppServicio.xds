@@ -1,0 +1,64 @@
+{
+    "name": "AppServicio",
+    "settings": {
+        "cmd": {
+            "license": "commercial"
+        },
+        "urlPrefixTemplate": "http://localhost:{port}/{path}",
+        "urlPrefix": "http://localhost/",
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "exportPath": "C:/xampp/htdocs/mda",
+        "buildShouldOverwriteIndex": false,
+        "generateArchitectVersion": false,
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1792-inputEl": "a new version of the framework is available"
+    },
+    "xdsVersion": "4.2.3",
+    "xdsBuild": 371,
+    "schemaVersion": 1,
+    "upgradeVersion": 310000000001,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "6286f985-44ad-4b90-bc07-be1362f30ed4",
+            "8b9275c0-27d3-4835-8e1d-8fa6f86a5c95",
+            "11363c09-4005-44fe-9326-27727cde49b9"
+        ],
+        "store": [
+            "7275e79a-fba6-49a0-81d2-ce5e568569d8",
+            "a816e7bc-28ec-4f57-8e58-e228ceae463e",
+            "f3d860bb-4105-4431-becc-72855780cfbe"
+        ],
+        "controller": [
+            "8d0cba7d-b01d-417a-ab61-8fdfd1c3b737",
+            "72b7c6cd-18e0-4cca-988e-0eab7a19649b",
+            "a2c1bf08-22ca-4cdb-af1c-d750a96e33b3",
+            "aa7209b3-4342-41af-9508-85c74606f408",
+            "a91a97af-d3f3-4d69-a06f-45a5e9537946"
+        ],
+        "model": [
+            "e375e039-92a0-4358-af94-2e8cf4805b01",
+            "f05a87db-c107-4274-86f5-77c1f9fa050e",
+            "9d5c6c26-dcc3-4456-b7a8-ab93aed5bfcd"
+        ],
+        "resource": [
+            "3a8f9bd3-30a0-4e82-afb0-32fad4694a01",
+            "6007623c-657d-4dfc-9995-b0f3ba11e7b5",
+            "4afc1015-2200-4192-99cd-f3e2095acf9a"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

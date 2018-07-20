@@ -1,0 +1,60 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "gmo.gma.responsable.strequerimientopendiente"
+        ],
+        "designer|userClassName": "gmo.gma.responsable.strequerimientopendiente",
+        "model": "gmo.gma.responsable.mdrequerimientopendiente",
+        "storeId": "gmo.gma.responsable.strequerimientopendiente"
+    },
+    "configAlternates": {
+        "alternateClassName": "typedarray",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore",
+    "designerId": "f41ad56a-88f1-43a7-aa88-5eab194ae33f",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/library/process/lst_gma_responsable.php"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy5",
+            "designerId": "fff57c81-600b-474a-b86e-516dd2a1f260",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "data"
+                    },
+                    "configAlternates": {
+                        "root": "string"
+                    },
+                    "name": "MyJsonReader5",
+                    "designerId": "7ccfdfe0-761e-45b4-ba90-6beec24afec3"
+                }
+            ]
+        }
+    ]
+}

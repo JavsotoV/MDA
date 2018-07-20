@@ -1,0 +1,56 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "appFolder": "app/mda",
+        "appProperty": "mda",
+        "controllers": [
+            "gmo.gma.resolutor.ctrMain",
+            "gmo.gma.resolutor.ctrMtto",
+            "gmo.global.utiles.ctrfuncion",
+            "gmo.gma.responsable.ctrMtto"
+        ],
+        "models": [
+            "gmo.gma.resolutor.mdresolutor",
+            "gmo.global.glbpais.mdglbpais",
+            "gmo.gma.servicio.mdservicio",
+            "gmo.global.glprofile.mdglprofile",
+            "gmo.gma.atributo.mdnivel",
+            "gmo.gma.responsable.mdresponsable",
+            "gmo.gma.responsable.mdrequerimientopendiente"
+        ],
+        "name": "gma",
+        "stores": [
+            "gmo.gma.resolutor.stresolutor",
+            "gmo.global.glbpais.stglbpais",
+            "gmo.gmo.servicio.stservicio",
+            "gmo.global.glprofile.stglprofile",
+            "gmo.gma.atributo.stnivel",
+            "gmo.gma.resolutor.stresolutorpaisrv",
+            "gmo.gma.responsable.stresponsable",
+            "gmo.gma.responsable.strequerimientopendiente"
+        ],
+        "title": "Modulo de Gestion de Resolutores",
+        "views": [
+            "gmo.gma.resolutor.vpmain",
+            "gmo.gma.resolutor.winMtto",
+            "gmo.gma.responsable.winMtto"
+        ]
+    },
+    "configAlternates": {
+        "controllers": "typedarray",
+        "models": "typedarray",
+        "name": "string",
+        "stores": "typedarray",
+        "views": "typedarray",
+        "appFolder": "string",
+        "appProperty": "string",
+        "title": "string"
+    },
+    "name": "Application",
+    "designerId": "application"
+}

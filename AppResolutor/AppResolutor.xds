@@ -1,0 +1,73 @@
+{
+    "name": "AppResolutor",
+    "settings": {
+        "cmd": {
+            "license": "commercial"
+        },
+        "urlPrefixTemplate": "http://localhost:{port}/{path}",
+        "urlPrefix": "http://localhost/",
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Large",
+                "builtIn": true,
+                "height": 1024,
+                "width": 1280
+            }
+        },
+        "exportPath": "C:/xampp/htdocs/mda",
+        "buildShouldOverwriteIndex": false,
+        "generateArchitectVersion": false,
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1657-inputEl": "a new version of the framework is available"
+    },
+    "xdsVersion": "4.2.3",
+    "xdsBuild": 371,
+    "schemaVersion": 1,
+    "upgradeVersion": 310000000001,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "9c9fe495-34a3-44eb-94a4-cb83f8113011",
+            "5b6c0ede-663d-4f01-9c18-b8649ce2af48",
+            "a756afa6-9817-4caa-8a71-abe8144f5117"
+        ],
+        "store": [
+            "19feef39-69a2-4402-8f05-1b462d73648a",
+            "99c2061d-5847-4663-a958-2e24b63b9ec9",
+            "e99f551a-e626-471b-8642-5885e2770e5b",
+            "93b201a2-bd46-4d26-9aa7-fb18f530d11d",
+            "bbbe3ee2-3361-46f7-81ca-cb29194554eb",
+            "d8915c50-4f58-43c3-b8b5-79b2afe87981",
+            "56631491-c12d-4f64-9cb2-eaee8c938f60",
+            "f41ad56a-88f1-43a7-aa88-5eab194ae33f"
+        ],
+        "controller": [
+            "079edf26-67c7-4574-8ada-e0eeec9c99ad",
+            "28221a60-a5eb-454c-9a8f-3db24acee533",
+            "1ab5ecd8-557f-4a60-9c62-ca4831bab3b5",
+            "dbc2a3a5-7062-4e7a-baf9-57dd36fcb8fd",
+            "68028231-c3c5-45b7-b97a-748d9c3cd3be"
+        ],
+        "model": [
+            "867f0d06-7f6c-4a8e-bd34-653a886640fc",
+            "bb2b6809-e684-4e11-b6bc-c503a80dfbcf",
+            "9e096eec-ea81-47e5-b154-87276bb8847b",
+            "9e71ca45-03dc-4afe-be80-6744b5519709",
+            "126fd9dd-b537-48b8-b424-ecf06e56afaf",
+            "2c479fa6-1a85-4d92-b383-dc5aa56cc456",
+            "9257aa35-dfd0-4b68-930c-f0a3e51cf197"
+        ],
+        "resource": [
+            "beb1569c-5db8-45b3-b632-0f8513b23b0b",
+            "9322f424-80e0-44e8-8a8a-74449db25416",
+            "711f1a73-bbc9-411b-a236-64681aa0d7d9"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}
